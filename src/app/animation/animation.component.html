@@ -1,0 +1,16 @@
+<div>
+	<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0;">
+		<defs>
+			<pattern id="smallGrid" width="5" height="5" patternUnits="userSpaceOnUse">
+				<path d="M 5 0 L 0 0 0 5" fill="none" stroke="gray" stroke-width="0.5"/>
+			</pattern>
+			<pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+				<rect width="50" height="50" fill="url(#smallGrid)"/>
+				<path d="M 50 0 L 0 0 0 50" fill="none" stroke="gray" stroke-width="1"/>
+			</pattern>
+		</defs>
+
+		<rect width="100%" height="100%" fill="url(#grid)" />
+	</svg>
+</div>
+<canvas #canvas style="position: absolute; top: 0; left: 0;" width="600" height="300"></canvas>
