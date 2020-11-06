@@ -20,4 +20,12 @@ export class AppComponent implements OnInit {
     const now = Math.floor(new Date().getTime() / 1000);
     this.rockerService.start(now).subscribe();
   }
+
+  crashed() {
+    this.rockerService.crashed().subscribe();
+  }
+
+  memberEscape() {
+    this.rockerService.memberEscape().subscribe();
+  }
 }
