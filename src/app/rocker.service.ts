@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { RocketPos } from './rocket';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
 export class RockerService {
 
   onStart: Subject<any> = new Subject<any>();
+  onProgress: Subject<any> = new Subject<RocketPos>();
   onCrashed: Subject<any> = new Subject<any>();
   onMemberEscape: Subject<any> = new Subject<any>();
 
@@ -17,6 +19,15 @@ export class RockerService {
       this.onStart.next(currentTime);
 
       subscribe.next(true);
+      subscribe.complete();
+    });
+  }
+
+  public progress(ratePos: RocketPos): Observable<RocketPos> {
+    return new Observable(subscribe => {
+      this.onProgress.next(ratePos);
+
+      subscribe.next(ratePos);
       subscribe.complete();
     });
   }
